@@ -1,0 +1,1 @@
+"I created this file using echo text > mere.txt" 
