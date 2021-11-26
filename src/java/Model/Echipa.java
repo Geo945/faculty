@@ -5,18 +5,13 @@ import java.util.ArrayList;
 public abstract class Echipa {
     private String team_name;
     private Integer max_number_of_members;
-    private Member leader;
-    private ArrayList<Member> members = new ArrayList<>();
-    private Integer leader_cost;
-    private Integer member_cost;
-    private Integer experience_cost;
+    protected Member leader;
+    protected ArrayList<Member> members = new ArrayList<>();
 
-    public Echipa(String team_name, Integer max_number_of_members, Integer leader_cost, Integer member_cost, Integer experience_cost) {
+
+    public Echipa(String team_name, Integer max_number_of_members) {
         this.team_name = team_name;
         this.max_number_of_members = max_number_of_members;
-        this.leader_cost=leader_cost;
-        this.member_cost=member_cost;
-        this.experience_cost=experience_cost;
     }
 
     public boolean addMember(Member m){
@@ -76,19 +71,5 @@ public abstract class Echipa {
     //nu am facut metoda abstracta pt ca e 95% identica implementarea, difera doar niste numere
     //asa ca am metoda si in DevTeam si HR setez costurile pt. tipu de echipa.
     //+ ca nici nu mai trb sa pun 2 membri protected ca sa o implementez in subclase.
-    public double getCost() {
-        double costs=0;
-        for(Member m: members){
-            if(m.equals(leader)){
-                costs += leader_cost + m.getYears_of_experience()*experience_cost;
-            }else{
-                costs += member_cost;
-                if(m.getYears_of_experience()>2 && m.getYears_of_experience()<5)
-                    costs += member_cost*0.25;
-                if(m.getYears_of_experience()>5)
-                    costs += member_cost*0.5;
-            }
-        }
-        return costs;
-    }
+    public abstract double getCost();
 }
