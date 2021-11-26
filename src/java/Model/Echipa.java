@@ -68,8 +68,6 @@ public abstract class Echipa {
         }
     }
 
-    //nu am facut metoda abstracta pt ca e 95% identica implementarea, difera doar niste numere
-    //asa ca am metoda si in DevTeam si HR setez costurile pt. tipu de echipa.
-    //+ ca nici nu mai trb sa pun 2 membri protected ca sa o implementez in subclase.
+
     public abstract double getCost();
 }
